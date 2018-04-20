@@ -1,7 +1,6 @@
 package com.qcg.service;
 
 import com.qcg.model.Page;
-import com.qcg.model.Song;
 import com.qcg.util.Html;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -19,8 +18,14 @@ import java.util.List;
 public class SongSheet {
     static String basePath = "https://music.163.com";
 
+    /**
+     * 获取所有歌单信息
+     * @param baseUrl 网易云主链接
+     * @return
+     */
     //获取所有歌单信息
-    public List<Page> getSongSheets(String html){
+    public List<Page> getSongSheets(String baseUrl){
+        String html = Html.getHtml(baseUrl);
         //根据html获取文档对象
         Document document = Jsoup.parse(html);
         Elements elements = document.getElementsByClass("u-cover u-cover-1");
@@ -31,12 +36,12 @@ public class SongSheet {
             //歌单标题
             String title = element.getElementsByClass("msk").get(0).attr("title");
             //链接
-            String url = basePath + element.getElementsByClass("msk").get(0).attr("href");
+            String sheetUrl = basePath + element.getElementsByClass("msk").get(0).attr("href");
             //播放数
             String playCount = element.getElementsByClass("nb").get(0).text();
             page.setHtml(html);
             page.setTitle(title);
-            page.setUrl(url);
+            page.setUrl(sheetUrl);
             page.setPlayCount(playCount);
             pageList.add(page);
         }
@@ -45,11 +50,11 @@ public class SongSheet {
 
     /**
      * 获取歌单的所有歌曲url
-     * @param url 歌单的url
+     * @param sheetUrl 歌单的url
      * @return
      */
-    public List<String> getSongsUrlOfSheet(String url){
-        Document document = Jsoup.parse(Html.getHtml(url));
+    public List<String> getSongsUrlOfSheet(String sheetUrl){
+        Document document = Jsoup.parse(Html.getHtml(sheetUrl));
         List<String> songList = new ArrayList<>();
         //获取歌单中歌曲所在位置
         Elements elements = document.select("ul.f-hide li");

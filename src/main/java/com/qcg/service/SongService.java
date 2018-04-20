@@ -22,14 +22,14 @@ public class SongService {
      * @param songUrl
      * @return
      */
-    public Song getSongAllInfo(String songUrl){
+    private Song getSongAllInfo(String songUrl){
         //此url为获取歌曲评论数  未加密的评论数
         String baseUrl = "http://music.163.com/api/v1/resource/comments/R_SO_4_";
         Document document = Jsoup.parse(Html.getHtml(songUrl));
         Song song = new Song();
         String songName = document.select("div.cnt div.tit em.f-ff2").text();
         String songer = document.select("div.cnt a.s-fc7").get(0).text();
-        String singId = songUrl.substring(songUrl.indexOf("="));
+        String singId = songUrl.substring(songUrl.indexOf("=")+1);
         String result = HttpUtil.get(baseUrl+singId);
         JSONObject jsonObject = new JSONObject(result);
         long commentCount = jsonObject.getInt("total");

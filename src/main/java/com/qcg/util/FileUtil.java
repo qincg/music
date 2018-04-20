@@ -12,11 +12,11 @@ import java.io.IOException;
  */
 public class FileUtil {
     /**
-     * 向文件增加内容（全覆盖）
      * @param file
      * @param content
+     * @param append 是否追加内容
      */
-    public static void addContent(File file,String content){
+    public static void addContent(File file,String content,boolean append){
         //判断文件是否存在
         if (!file.exists()){
             try {
@@ -28,7 +28,7 @@ public class FileUtil {
         FileWriter fw = null;
         BufferedWriter bw = null;
         try {
-            fw = new FileWriter(file);
+            fw = new FileWriter(file,append);
             bw = new BufferedWriter(fw);
             bw.write(content);
             bw.flush();
