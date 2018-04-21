@@ -1,18 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="408be139-0372-4103-a9cf-aec38619ea24" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/../music/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../music/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../music/src/main/java/com/qcg/service/SheetCrawer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../music/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../music/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../music/src/main/java/com/qcg/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/../music/src/main/java/com/qcg/Test.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../music/src/main/java/com/qcg/service/SongService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../music/src/main/java/com/qcg/service/SongService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../music/src/main/java/com/qcg/service/SongSheet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../music/src/main/java/com/qcg/service/SongSheet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../music/src/main/java/com/qcg/util/FileUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/../music/src/main/java/com/qcg/util/FileUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../music/src/main/java/com/qcg/util/Html.java" beforeDir="false" afterPath="$PROJECT_DIR$/../music/src/main/java/com/qcg/util/Html.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../music/src/main/java/com/qcg/util/HttpUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/../music/src/main/java/com/qcg/util/HttpUtil.java" afterDir="false" />
-    </list>
+    <list default="true" id="408be139-0372-4103-a9cf-aec38619ea24" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/../music/out/" />
     <ignored path="$PROJECT_DIR$/../music/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -155,8 +144,8 @@
       <file leaf-file-name="Test.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/../music/src/main/java/com/qcg/Test.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="217">
-              <caret line="32" column="45" selection-start-line="32" selection-start-column="45" selection-end-line="32" selection-end-column="45" />
+            <state relative-caret-position="179">
+              <caret line="30" column="37" lean-forward="true" selection-start-line="30" selection-start-column="37" selection-end-line="30" selection-end-column="37" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -403,12 +392,20 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1524102303627</updated>
-      <workItem from="1524102306887" duration="30163000" />
+      <workItem from="1524102306887" duration="30807000" />
     </task>
+    <task id="LOCAL-00001" summary=" add">
+      <created>1524214474109</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1524214474110</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="30163000" />
+    <option name="totallyTimeSpent" value="30807000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -421,7 +418,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" />
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
@@ -463,6 +459,10 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value=" add" />
+    <option name="LAST_COMMIT_MESSAGE" value=" add" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -672,8 +672,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../music/src/main/java/com/qcg/Test.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="32" column="45" selection-start-line="32" selection-start-column="45" selection-end-line="32" selection-end-column="45" />
+        <state relative-caret-position="179">
+          <caret line="30" column="37" lean-forward="true" selection-start-line="30" selection-start-column="37" selection-end-line="30" selection-end-column="37" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
