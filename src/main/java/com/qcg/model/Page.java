@@ -21,6 +21,33 @@ public class Page implements Serializable {
      * 页面的html信息
      */
     private String html;
+    /**
+     * 歌单标题
+     */
+    private String title;
+
+    /**
+     * 页面类型:0--->歌单,1-->歌曲
+     * @return
+     *
+     */
+    private int type;
+
+    /**
+     * 播放数
+     */
+
+    private String playCount;
+    public Page() {
+    }
+
+    public int getType() {
+        return type;
+    }
+
+    public void setType(int type) {
+        this.type = type;
+    }
 
     public String getTitle() {
         return title;
@@ -30,11 +57,6 @@ public class Page implements Serializable {
         this.title = title;
     }
 
-    /**
-     * 歌单标题
-     */
-    private String title;
-
     public String getPlayCount() {
         return playCount;
     }
@@ -43,14 +65,9 @@ public class Page implements Serializable {
         this.playCount = playCount;
     }
 
-    /**
-     * 播放数
-     */
 
-    private String playCount;
 
-    public Page() {
-    }
+
 
     public String getUrl() {
         return url;
