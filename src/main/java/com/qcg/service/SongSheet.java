@@ -43,6 +43,7 @@ public class SongSheet {
             page.setTitle(title);
             page.setUrl(sheetUrl);
             page.setPlayCount(playCount);
+            page.setStatus(0);
             pageList.add(page);
         }
         return pageList;

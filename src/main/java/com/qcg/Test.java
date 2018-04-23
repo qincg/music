@@ -6,6 +6,8 @@ import com.qcg.service.SongService;
 import com.qcg.service.SongSheet;
 import com.qcg.util.FileUtil;
 import com.qcg.util.XmlUtil;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.io.File;
 import java.util.List;
@@ -41,7 +43,25 @@ public class Test {
         System.out.println("userName = " + userName);
     }
 
+    public static void logTest(){
+        Logger logger = LogManager.getLogger(LogManager.ROOT_LOGGER_NAME);
+        logger.debug("debug");
+        logger.trace("trace");
+        logger.error("error");
+        logger.fatal("fatal");
+        logger.warn("warn");
+        logger.info("info");
+        Logger logger1 = LogManager.getLogger(Test.class);
+        logger1.debug("debug");
+        logger1.trace("trace");
+        logger1.error("error");
+        logger1.fatal("fatal");
+        logger1.warn("warn");
+        logger1.info("info");
+    }
+
     public static void main(String[] args) {
-        xmlTest();
+//        xmlTest();
+        logTest();
     }
 }
