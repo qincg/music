@@ -24,6 +24,7 @@ public class Html {
              response = Jsoup.connect(url).userAgent("Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:59.0) Gecko/20100101 Firefox/59.0").timeout(3000).execute();
         }catch (IOException e){
             e.printStackTrace();
+            LogUtil.getLogger().error(e.getMessage());
         }
         //File file = new File("D:\\music.html");
         /*File file = new File("D:\\music1.html");
