@@ -1,7 +1,30 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<Configuration xmlns="http://logging.apache.org/log4j/2.0/config" status="trace">
-    <Appenders>
-        <Appender type="" name=""
-    </Appenders>
-    <Loggers></Loggers>
-</Configuration>
+<!--status 表示log4j自身的日志级别 ，monitorInterval：log4j可以自动检测修改配置，设置间隔秒数-->
+<!--日志级别：all < trace < debug < info < warn < error < fatal < off-->
+<configuration status="warn" monitorInterval="10">
+    <appenders>
+        <!--控制台打印-->
+        <console name="console" target="SYSTEM_OUT">
+            <ThresholdFilter level="debug"/>
+            <patternlayout pattern="[%d {yyyy-MM-dd HH:mm:ss:SSS}] [%p] - %l - %m%n"/>
+        </console>
+        <!--文件输出日志信息，这个每次都会启动都会自动清空，由append决定，适合临时测试用-->
+        <file name="fileLog" fileName="log/test.log" append="false">
+            <patternlayout pattern="%d{HH:mm:ss.SSS} %-5level %class{36} %L %M - %msg%xEx%n"/>
+        </file>
+        <rollingFile name="rollingFileLog" fileName="logs/log.log" filePattern="logs/log-%d{yyyy-MM-dd}-%i.log.zip">
+            <patternlayout pattern="%d{HH:mm:ss.SSS} %-5level %class{36} %L %M - %msg%xEx%n"/>
+            <policies>
+                <!--超过4MB新建文件-->
+                <SizeBasedTriggeringPolicy size="4kB"/>
+            </policies>
+        </rollingFile>
+    </appenders>
+    <loggers>
+        <root level="all">
+            <appender-ref ref="console"/>
+            <appender-ref ref="rollingFileLog"/>
+            <appender-ref ref="fileLog"/>
+        </root>
+    </loggers>
+</configuration>

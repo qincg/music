@@ -18,7 +18,7 @@ public class XmlUtil {
     public XmlUtil() {
         SAXReader saxReader = new SAXReader();
         try {
-            System.out.println(FILE_URL);
+            LogUtil.getLogger().trace(FILE_URL);
             URL url = new URL(FILE_URL);
             String fileName = url.getFile();
             File file = new File(fileName);

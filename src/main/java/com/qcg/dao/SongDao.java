@@ -3,8 +3,10 @@ package com.qcg.dao;
 import com.qcg.interfaces.DaoInterface;
 import com.qcg.model.Song;
 import com.qcg.util.JdbcUtil;
+import com.qcg.util.LogUtil;
 import org.apache.commons.dbutils.DbUtils;
 import org.apache.commons.dbutils.QueryRunner;
+import org.apache.commons.dbutils.handlers.ArrayListHandler;
 
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -28,6 +30,7 @@ public class SongDao implements DaoInterface<Song> {
             }
         }catch (SQLException e){
             e.printStackTrace();
+            LogUtil.getLogger().error(e.getMessage());
         }finally {
             DbUtils.closeQuietly(connection);
         }
@@ -46,6 +49,22 @@ public class SongDao implements DaoInterface<Song> {
 
     @Override
     public boolean query(String url) {
+        String sql = "select * from song where song_url = ?";
+        QueryRunner queryRunner = new QueryRunner();
+        Connection connection = JdbcUtil.getConnection();
+        try {
+            List songList = queryRunner.query(connection, sql, new ArrayListHandler(), url);
+            if (songList.size() == 1){
+                return true;
+            }else if (songList.size() > 1){
+                LogUtil.getLogger().error("song有重复url");
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+            LogUtil.getLogger().error(e.getMessage());
+        }finally {
+            DbUtils.closeQuietly(connection);
+        }
         return false;
     }
 

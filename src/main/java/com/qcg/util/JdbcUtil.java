@@ -26,8 +26,10 @@ public class JdbcUtil {
             connection = DriverManager.getConnection(driverUrl,userName,password);
         }catch (ClassNotFoundException e){
             e.printStackTrace();
+            LogUtil.getLogger().error(e.getMessage());
         }catch (SQLException e){
             e.printStackTrace();
+            LogUtil.getLogger().error(e.getMessage());
         }
         return connection;
     }

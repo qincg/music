@@ -3,6 +3,7 @@ package com.qcg.dao;
 import com.qcg.interfaces.DaoInterface;
 import com.qcg.model.Page;
 import com.qcg.util.JdbcUtil;
+import com.qcg.util.LogUtil;
 import org.apache.commons.dbutils.DbUtils;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.ArrayListHandler;
@@ -27,6 +28,7 @@ public class PageDao implements DaoInterface<Page> {
             }
         }catch (SQLException e){
             e.printStackTrace();
+            LogUtil.getLogger().error(e.getMessage());
         }finally {
             DbUtils.closeQuietly(connection);
         }
@@ -56,6 +58,7 @@ public class PageDao implements DaoInterface<Page> {
             }
         }catch (SQLException e){
             e.printStackTrace();
+            LogUtil.getLogger().error(e.getMessage());
         }finally {
             DbUtils.closeQuietly(connection);
         }
@@ -72,10 +75,13 @@ public class PageDao implements DaoInterface<Page> {
             if (list.size() == 1){
                 return true;
             }else if (list.size() > 1){
-                System.out.println("url有重复的请检查代码");
+                LogUtil.getLogger().error("page有重复url");
             }
         }catch (SQLException e){
             e.printStackTrace();
+            LogUtil.getLogger().error(e.getMessage());
+        }finally {
+            DbUtils.closeQuietly(connection);
         }
         return false;
     }
@@ -93,6 +99,7 @@ public class PageDao implements DaoInterface<Page> {
             pageList = queryRunner.query(connection, sql, new BeanListHandler<Page>(Page.class),type);
         }catch (SQLException e){
             e.printStackTrace();
+            LogUtil.getLogger().error(e.getMessage());
         }finally {
             DbUtils.closeQuietly(connection);
         }
@@ -112,6 +119,9 @@ public class PageDao implements DaoInterface<Page> {
             page = queryRunner.query(connection, sql, new BeanHandler<Page>(Page.class), type);
         }catch (SQLException e){
             e.printStackTrace();
+            LogUtil.getLogger().error(e.getMessage());
+        }finally {
+            DbUtils.closeQuietly(connection);
         }
         return page;
     }

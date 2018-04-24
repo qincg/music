@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <db>
     <userName>root</userName>
-    <password>199303</password>
+    <password>myoa888</password>
     <driverName>com.mysql.cj.jdbc.Driver</driverName>
-    <url>jdbc:mysql://localhost:3306/music</url>
+    <url>jdbc:mysql://localhost:3310/music?serverTimezone=Hongkong&amp;useSSL=true</url>
 </db>
