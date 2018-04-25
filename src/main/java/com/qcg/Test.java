@@ -113,22 +113,29 @@ public class Test {
         for (int i = 0; i < length; i++) {
             //分割map (0,9) (10,19) (20,29)
             Map<String,Integer> map1 = new HashMap<>(temp);
-            List<String> list = listKey.subList(i*10,(i+1)*10);
-            List<Integer> list1 = listValue.subList(i*10,(i+1)*10);
+            List<String> list;
+            List<Integer> list1;
+            if (i == length -1){
+                list = listKey.subList(i*10,map.size());
+                list1 = listValue.subList(i*10,map.size());
+            }else {
+                list = listKey.subList(i * 10, (i + 1) * 10);
+                list1 = listValue.subList(i * 10, (i + 1) * 10);
+            }
             for (int y =0 ;y < list.size();y++){
                 map1.put(list.get(y),list1.get(y));
             }
             IPThread ipThread = new IPThread(map1);
-            ipThread.run();
-
+            Thread thread = new Thread(ipThread);
+            thread.start();
         }
         long end = System.currentTimeMillis();
-        System.out.println("end-start = " + (end - start));
+        System.out.println("end-start = " + (end - start)/1000);
         System.out.println("map.size() = " + map.size());
     }
 
     public static void testThread(){
-        new TestThread(new String[]{"123","134","145","167"}).run();
+        new Thread(new TestThread(new String[]{"123","134","145","167"})).start();
         new TestThread(new String[]{"adsf","sdfsd","sdfs","wer"}).run();
         new TestThread(new String[]{"12adssa","dasd123","sdfs2dfs"}).run();
     }

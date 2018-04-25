@@ -1,14 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="408be139-0372-4103-a9cf-aec38619ea24" name="Default" comment=" add">
-      <change afterPath="$PROJECT_DIR$/../music/src/main/java/com/qcg/thread/IPThread.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../music/src/main/java/com/qcg/thread/TestThread.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../music/src/main/java/com/qcg/util/ProxyUtil.java" afterDir="false" />
+    <list default="true" id="408be139-0372-4103-a9cf-aec38619ea24" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/../music/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../music/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../music/src/main/java/com/qcg/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/../music/src/main/java/com/qcg/Test.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../music/src/main/java/com/qcg/util/HttpUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/../music/src/main/java/com/qcg/util/HttpUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../music/src/main/java/com/qcg/util/LogUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/../music/src/main/java/com/qcg/util/LogUtil.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -83,8 +78,8 @@
       <file leaf-file-name="Test.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/../music/src/main/java/com/qcg/Test.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="258">
-              <caret line="122" column="12" selection-start-line="122" selection-start-column="12" selection-end-line="122" selection-end-column="12" />
+            <state relative-caret-position="198">
+              <caret line="137" column="82" selection-start-line="137" selection-start-column="82" selection-end-line="137" selection-end-column="82" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -426,7 +421,7 @@
       <option name="presentableId" value="Default" />
       <updated>1524102303627</updated>
       <workItem from="1524102306887" duration="60310000" />
-      <workItem from="1524619057992" duration="15640000" />
+      <workItem from="1524619057992" duration="16430000" />
     </task>
     <task id="LOCAL-00001" summary=" add">
       <created>1524214474109</created>
@@ -463,11 +458,18 @@
       <option name="project" value="LOCAL" />
       <updated>1524562159976</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary=" add">
+      <created>1524647917812</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1524647917812</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="75950000" />
+    <option name="totallyTimeSpent" value="76740000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -480,10 +482,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50075644" side_tool="true" weight="0.38265306" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5015129" side_tool="true" weight="0.38265306" />
       <window_info anchor="bottom" id="JRebel Console" order="7" side_tool="true" />
       <window_info anchor="right" id="Maven Projects" order="3" />
       <window_info anchor="bottom" id="JRebel Executor" order="7" weight="0.3282313" />
@@ -494,7 +495,7 @@
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="2" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" sideWeight="0.49924356" visible="true" weight="0.38265306" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49848714" visible="true" weight="0.38265306" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32993197" />
       <window_info anchor="bottom" id="Messages" order="7" weight="0.3293718" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
@@ -504,7 +505,7 @@
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32993197" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.32786885" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.290469" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.290469" />
       <window_info id="Web" order="2" side_tool="true" />
       <window_info id="JRebel" order="2" side_tool="true" />
       <window_info anchor="right" id="Theme Preview" order="3" />
@@ -556,14 +557,6 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/../music/src/main/java/com/qcg/Test.java</url>
-          <line>114</line>
-          <properties />
-          <option name="timeStamp" value="24" />
-        </line-breakpoint>
-      </breakpoints>
       <option name="time" value="25" />
     </breakpoint-manager>
   </component>
@@ -976,8 +969,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../music/src/main/java/com/qcg/Test.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="258">
-          <caret line="122" column="12" selection-start-line="122" selection-start-column="12" selection-end-line="122" selection-end-column="12" />
+        <state relative-caret-position="198">
+          <caret line="137" column="82" selection-start-line="137" selection-start-column="82" selection-end-line="137" selection-end-column="82" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
