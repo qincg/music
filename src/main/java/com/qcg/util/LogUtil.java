@@ -14,9 +14,16 @@ public class LogUtil {
     public LogUtil(String logName) {
         logger = LogManager.getLogger(logName);
     }
+    public LogUtil(Class t){
+        logger = LogManager.getLogger(t);
+    }
 
     public LogUtil() {
         logger = LogManager.getLogger(LogManager.ROOT_LOGGER_NAME);
+    }
+
+    public static LogUtil getLogger(Class t){
+        return new LogUtil(t);
     }
 
     public static LogUtil getLogger(String logName) {
