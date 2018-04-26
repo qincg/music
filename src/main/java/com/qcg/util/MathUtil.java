@@ -12,6 +12,11 @@ import java.util.Random;
  * @Date: 2018/4/26 14:42
  */
 public class MathUtil {
+
+    /**
+     * TODO 需要改：不需要每次从数据库查询数据，只需要把更改list就行
+     * @return
+     */
     public static Ip getRandomIp(){
         IpDao ipDao = new IpDao();
         List<Ip> ipList = ipDao.query();
@@ -22,7 +27,7 @@ public class MathUtil {
         boolean canUse = ProxyUtil.checkIp(ip.getIp(),ip.getPort(),"http://music.163.com/playlist?id=2182683172");
         if (!canUse){
             ipDao.delete(ip);
-            getRandomIp();
+            return getRandomIp();
             //删除库中没用的ip
         }
         System.out.println("ip 123= " + ip);

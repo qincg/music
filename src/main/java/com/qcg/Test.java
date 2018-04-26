@@ -1,5 +1,6 @@
 package com.qcg;
 
+import com.qcg.model.Ip;
 import com.qcg.model.Page;
 import com.qcg.model.Song;
 import com.qcg.service.PageService;
@@ -145,7 +146,8 @@ public class Test {
     }
 
     public static void getRandomIp() {
-        MathUtil.getRandomIp();
+        Ip ip = MathUtil.getRandomIp();
+        System.out.println("ip = " + ip);
     }
 
     public static void listTest() {
