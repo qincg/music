@@ -36,7 +36,7 @@ public class PageDao implements DaoInterface<Page> {
     }
 
     @Override
-    public boolean delete() {
+    public boolean delete(Page page) {
         return false;
     }
 

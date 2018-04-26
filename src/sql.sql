@@ -14,3 +14,9 @@ create table song(
   songer varchar(20),
   comment_count bigint
 );
+
+create table ip(
+  id int auto_increment primary key ,
+  ip varchar(20),
+  port int
+);

@@ -38,7 +38,7 @@ public class SongDao implements DaoInterface<Song> {
     }
 
     @Override
-    public boolean delete() {
+    public boolean delete(Song song) {
         return false;
     }
 

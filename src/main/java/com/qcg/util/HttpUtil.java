@@ -1,12 +1,17 @@
 package com.qcg.util;
 
+import com.qcg.dao.IpDao;
+import com.qcg.model.Ip;
 import org.apache.http.HttpEntity;
+import org.apache.http.HttpHost;
 import org.apache.http.HttpStatus;
+import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.impl.client.HttpClients;
 
 import java.io.*;
@@ -23,12 +28,17 @@ public class HttpUtil {
      * @return
      */
     public static String get(String url){
-        CloseableHttpClient httpClient = HttpClients.createDefault();
+        Ip ip = MathUtil.getRandomIp();
+
+        HttpClientBuilder httpClientBuilder = HttpClients.custom();
+        httpClientBuilder.setProxy(new HttpHost(ip.getIp(),ip.getPort()));
+        CloseableHttpClient httpClient = httpClientBuilder.build();
         HttpGet httpGet = new HttpGet(url);
         httpGet.addHeader("Accept","text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8");
         httpGet.addHeader("User-Agent","Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36");
         String str = "";
         CloseableHttpResponse closeableHttpResponse = null;
+        IpDao ipDao = new IpDao();
         try {
             closeableHttpResponse = httpClient.execute(httpGet);
             int status = closeableHttpResponse.getStatusLine().getStatusCode();
@@ -37,8 +47,11 @@ public class HttpUtil {
                 InputStream is = entity.getContent();
                 str = readInput(is);
                 return str;
+            }else {
+                ipDao.delete(ip);
             }
         }catch (IOException e){
+            ipDao.delete(ip);
             e.printStackTrace();
         }finally {
             if (closeableHttpResponse != null) {

@@ -1,5 +1,7 @@
 package com.qcg.thread;
 
+import com.qcg.dao.IpDao;
+import com.qcg.model.Ip;
 import com.qcg.util.ProxyUtil;
 
 import java.util.Map;
@@ -20,8 +22,13 @@ public class IPThread implements Runnable {
     @Override
     public void run() {
         Map<String,Integer> map = ProxyUtil.checkIps(ipMap);
+        IpDao ipDao = new IpDao();
         for(String key:map.keySet()){
-            System.out.println("key = " + key + "  value =" + map.get(key));
+            Ip ip = new Ip(key,map.get(key));
+            System.out.println("ip = " + ip);
+            if (ipDao.query(ip)) {
+                ipDao.add(ip);
+            }
         }
     }
 

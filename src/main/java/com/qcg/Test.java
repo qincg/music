@@ -7,10 +7,7 @@ import com.qcg.service.SongService;
 import com.qcg.service.SongSheet;
 import com.qcg.thread.IPThread;
 import com.qcg.thread.TestThread;
-import com.qcg.util.FileUtil;
-import com.qcg.util.LogUtil;
-import com.qcg.util.ProxyUtil;
-import com.qcg.util.XmlUtil;
+import com.qcg.util.*;
 import org.apache.http.util.EntityUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -19,10 +16,7 @@ import org.jsoup.Jsoup;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * @Author: qcg
@@ -101,7 +95,7 @@ public class Test {
         Map<String, Integer> map = ProxyUtil.getIps();
         List<String> listKey = new ArrayList<>(500);
         List<Integer> listValue = new ArrayList<>(500);
-        for (String key:map.keySet()){
+        for (String key : map.keySet()) {
             listKey.add(key);
             listValue.add(map.get(key));
         }
@@ -112,32 +106,58 @@ public class Test {
 
         for (int i = 0; i < length; i++) {
             //分割map (0,9) (10,19) (20,29)
-            Map<String,Integer> map1 = new HashMap<>(temp);
+            Map<String, Integer> map1 = new HashMap<>(temp);
             List<String> list;
             List<Integer> list1;
-            if (i == length -1){
-                list = listKey.subList(i*10,map.size());
-                list1 = listValue.subList(i*10,map.size());
-            }else {
+            if (i == length - 1) {
+                list = listKey.subList(i * 10, map.size());
+                list1 = listValue.subList(i * 10, map.size());
+            } else {
                 list = listKey.subList(i * 10, (i + 1) * 10);
                 list1 = listValue.subList(i * 10, (i + 1) * 10);
             }
-            for (int y =0 ;y < list.size();y++){
-                map1.put(list.get(y),list1.get(y));
+            for (int y = 0; y < list.size(); y++) {
+                map1.put(list.get(y), list1.get(y));
             }
             IPThread ipThread = new IPThread(map1);
             Thread thread = new Thread(ipThread);
             thread.start();
         }
         long end = System.currentTimeMillis();
-        System.out.println("end-start = " + (end - start)/1000);
         System.out.println("map.size() = " + map.size());
     }
 
-    public static void testThread(){
-        new Thread(new TestThread(new String[]{"123","134","145","167"})).start();
-        new TestThread(new String[]{"adsf","sdfsd","sdfs","wer"}).run();
-        new TestThread(new String[]{"12adssa","dasd123","sdfs2dfs"}).run();
+    public static void testThread() {
+        new Thread(new TestThread(new String[]{"123", "134", "145", "167"})).start();
+        new TestThread(new String[]{"adsf", "sdfsd", "sdfs", "wer"}).run();
+        new TestThread(new String[]{"12adssa", "dasd123", "sdfs2dfs"}).run();
+    }
+
+
+    public static void getRodom() {
+        Random random = new Random(60);
+        for (int i = 0; i < 1000; i++) {
+            double temp = Math.floor(Math.random() * 60);
+            int temp2 = random.nextInt(60);
+            System.out.println("temp*60 = " + temp + "  temp2 = " + temp2);
+
+        }
+    }
+
+    public static void getRandomIp() {
+        MathUtil.getRandomIp();
+    }
+
+    public static void listTest() {
+        List list = new ArrayList();
+        list.add("1");
+        list.add("2");
+        list.add("3");
+        list.remove(2);
+        System.out.println("list.size() = " + list.size());
+        for (Object o : list) {
+            System.out.println("o = " + o);
+        }
     }
 
     public static void main(String[] args) {
@@ -145,7 +165,10 @@ public class Test {
         //logTest();
         //music();
         //ipTest();
-        getIp();
-       // testThread();
+        //getIp();
+        getRandomIp();
+        // testThread();
+        //getRodom();
+        //listTest();
     }
 }

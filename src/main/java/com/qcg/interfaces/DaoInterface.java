@@ -15,7 +15,7 @@ public interface DaoInterface<T> {
     /**
      * 删
      */
-    boolean delete();
+    boolean delete(T t);
 
     /**
      * 根据url修改状态
