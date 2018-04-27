@@ -78,7 +78,8 @@ public class ProxyUtil {
         for (String ip : ipMap.keySet()) {
             int port = ipMap.get(ip);
             try {
-                Jsoup.connect("http://www.baidu.com").timeout(3000).proxy(ip, port).execute();
+                Jsoup.connect("http://www.baidu.com").timeout(3000).proxy(ip, port)
+                        .get();
                 checkedIps.put(ip, port);
             } catch (IOException e) {
 

@@ -7,6 +7,7 @@ import com.qcg.service.PageService;
 import com.qcg.service.SongService;
 import com.qcg.service.SongSheet;
 import com.qcg.thread.IPThread;
+import com.qcg.thread.PageThread;
 import com.qcg.thread.TestThread;
 import com.qcg.util.*;
 import org.apache.http.util.EntityUtils;
@@ -129,9 +130,11 @@ public class Test {
     }
 
     public static void testThread() {
+        Thread thread = new Thread();
         new Thread(new TestThread(new String[]{"123", "134", "145", "167"})).start();
-        new TestThread(new String[]{"adsf", "sdfsd", "sdfs", "wer"}).run();
-        new TestThread(new String[]{"12adssa", "dasd123", "sdfs2dfs"}).run();
+        new Thread(new TestThread(new String[]{"adsf", "sdfsd", "sdfs", "wer"})).start();
+        new Thread(new TestThread(new String[]{"12adssa", "dasd123", "sdfs2dfs"})).start();
+        System.out.println("new TestThread().getCount() = " + TestThread.count);
     }
 
 
@@ -145,8 +148,8 @@ public class Test {
         }
     }
 
-    public static void getRandomIp() {
-        Ip ip = MathUtil.getRandomIp();
+    public static void getRandomIp(String url) {
+        Ip ip = MathUtil.getRandomIp(url);
         System.out.println("ip = " + ip);
     }
 
@@ -162,15 +165,26 @@ public class Test {
         }
     }
 
+    public static void musicTest() {
+        PageService ps = new PageService();
+        for (int i = 0; i < 4; i++) {
+            Page page = ps.queryFistSheet();
+            new Thread(new PageThread(page)).start();
+        }
+    }
+
     public static void main(String[] args) {
 //        xmlTest();
         //logTest();
         //music();
         //ipTest();
         //getIp();
-        getRandomIp();
-        // testThread();
+        //getRandomIp();
+         testThread();
         //getRodom();
         //listTest();
+
+        //com.qcg.util.Test.test1();
+        //musicTest();
     }
 }

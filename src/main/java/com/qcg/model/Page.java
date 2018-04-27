@@ -14,7 +14,7 @@ public class Page implements Serializable {
     private String url;
 
     /**
-     * 状态：0：未爬取；1：已爬取
+     * 状态：0：未爬取；1：已爬取;2:正在爬取
      */
     private int status;
     /**

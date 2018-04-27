@@ -21,7 +21,7 @@ public class Html {
      * @return
      */
     public static String getHtml(String url) {
-        Ip ip = MathUtil.getRandomIp();
+        Ip ip = MathUtil.getRandomIp(url);
         Connection.Response response = null;
         try {
              response = Jsoup.connect(url).proxy(ip.getIp(),ip.getPort()).userAgent("Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:59.0) Gecko/20100101 Firefox/59.0").timeout(3000).execute();
@@ -32,9 +32,6 @@ public class Html {
         //File file = new File("D:\\music.html");
         /*File file = new File("D:\\music1.html");
         FileUtil.addContent(file,response.body());*/
-        if (response == null){
-            return "";
-        }
         return response.body();
     }
 }

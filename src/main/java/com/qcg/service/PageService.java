@@ -44,23 +44,31 @@ public class PageService {
 
     /**
      * 从歌单获取歌曲信息，判断歌曲的评论数，然后，加入到数据库中
+     * 调用此方法后直接修改page的状态为2（正在爬取），若出现异常，改回状态
      */
     public void addSongInfo(Page page){
-        SongService ss = new SongService();
-        List<Song> songList = ss.getSongsOfSheet(page.getUrl());
-        SongDao sd = new SongDao();
+        //修改页面状态
+        boolean temp = updateStatus(page.getUrl(),2);
         boolean status = false;
-        for (Song song : songList){
-            long commentCount = song.getCommentCount();
-            //判断歌曲评论数是否过万，且数据库中没有此记录
-            if (commentCount >= 10000 && sd.query(song.getSongUrl())){
-                status = sd.add(song);
+        try {
+            SongService ss = new SongService();
+            List<Song> songList = ss.getSongsOfSheet(page.getUrl());
+            SongDao sd = new SongDao();
+            for (Song song : songList) {
+                long commentCount = song.getCommentCount();
+                //判断歌曲评论数是否过万，且数据库中没有此记录
+                if (commentCount >= 10000 && sd.query(song.getSongUrl())) {
+                    status = sd.add(song);
+                    System.out.println("song = " + song);
+                }
             }
+        }catch (Exception e){
+            updateStatus(page.getUrl(),0);
         }
 
         if (status) {
             //把page页面标记为已爬取
-            pageDao.update(page.getUrl(), 1);
+            updateStatus(page.getUrl(),1);
         }
     }
 
@@ -70,5 +78,12 @@ public class PageService {
 
     public List<Page> getAllSheet(){
         return pageDao.query(0);
+    }
+
+    /**
+     * 更新page页面状态
+     */
+    public boolean updateStatus(String url,int status){
+        return pageDao.update(url,status);
     }
 }

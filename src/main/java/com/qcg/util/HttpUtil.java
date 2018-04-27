@@ -28,7 +28,7 @@ public class HttpUtil {
      * @return
      */
     public static String get(String url){
-        Ip ip = MathUtil.getRandomIp();
+        Ip ip = MathUtil.getRandomIp(url);
 
         HttpClientBuilder httpClientBuilder = HttpClients.custom();
         httpClientBuilder.setProxy(new HttpHost(ip.getIp(),ip.getPort()));

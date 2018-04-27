@@ -22,7 +22,7 @@ public class SongService {
      * @param songUrl
      * @return
      */
-    private Song getSongAllInfo(String songUrl){
+    public Song getSongAllInfo(String songUrl){
         //此url为获取歌曲评论数  未加密的评论数
         String baseUrl = "http://music.163.com/api/v1/resource/comments/R_SO_4_";
         Document document = Jsoup.parse(Html.getHtml(songUrl));
